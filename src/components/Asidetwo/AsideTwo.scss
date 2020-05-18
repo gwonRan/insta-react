@@ -1,0 +1,61 @@
+.AsideTwo {
+  width: 100%;
+  width: 290px;
+  background-color: white;
+  margin: 1rem 0rem;
+  padding: 1rem;
+  .asideRecommand {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.7rem;
+    .asideRecommand_title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: rgb(172, 172, 172);
+    }
+    .asideRecommand_viewAll {
+      font-size: 0.65rem;
+      font-weight: 700;
+    }
+  }
+  .asidePersonContainer {
+    .asidePerson {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.7rem;
+      .asidePersonProfile {
+        display: flex;
+        align-items: center;
+        .myProfile {
+          width: 35px;
+          margin-right: 0.65rem;
+
+          img {
+            width: 100%;
+            border-radius: 100%;
+          }
+        }
+        .myprofileName {
+          span:last-child {
+            display: block;
+          }
+        }
+      }
+      .asidePersonFollow {
+        color: #0095f6;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+    }
+    .asidePerson:last-of-type {
+      margin-bottom: 0rem;
+    }
+  }
+}
+
+/* 스크롤바 투명색으로 만들어줌
+::-webkit-scrollbar {
+    width: 0px;  Remove scrollbar space
+    background: transparent;  Optional: just make scrollbar invisible
+} */

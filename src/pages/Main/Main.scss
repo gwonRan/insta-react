@@ -1,0 +1,22 @@
+.mainfeed {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  .feedRight {
+    .profileRight {
+      display: flex;
+      align-items: center;
+      span:last-child {
+        display: block;
+      }
+      .myProfileRightImg {
+        width: 50px;
+        margin-right: 0.8rem;
+        img {
+          width: 100%;
+          border-radius: 100%;
+        }
+      }
+    }
+  }
+}

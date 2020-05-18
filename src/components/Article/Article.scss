@@ -1,0 +1,130 @@
+.Article {
+  article {
+    margin-right: 2rem;
+    background-color: white;
+    max-width: 620px;
+    margin-bottom: 4rem;
+    border: 1px solid #dbdbdb;
+    .feedProfile {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1rem;
+      .feedProfile_mine {
+        display: flex;
+        align-items: center;
+        .myProfile {
+          width: 35px;
+          margin-right: 0.65rem;
+          img {
+            width: 100%;
+            border-radius: 100%;
+          }
+        }
+        .myprofileName {
+        }
+      }
+      .feedProfile_other {
+        font-size: 0.7rem;
+      }
+    }
+    .yourfeed_img {
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+    .feedAction {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem 0.2rem;
+      .feedActionLeft {
+        display: flex;
+        justify-content: space-between;
+        .feedActionLeftImg {
+          button {
+            outline: 0;
+            border: 0;
+            width: 25px;
+            padding: 0;
+            img {
+              width: 100%;
+            }
+          }
+        }
+        .feedActionLeftImg:nth-child(2) {
+          margin: 0rem 0.5rem;
+        }
+      }
+    }
+    .feedLike {
+      padding: 0rem 1rem;
+      display: flex;
+      align-items: center;
+      font-size: 0.8rem;
+      .feedLikeImg {
+        width: 20px;
+        margin-right: 0.5rem;
+        img {
+          width: 100%;
+          border-radius: 100%;
+        }
+      }
+    }
+    .feedComment {
+      padding: 0rem 1rem;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      .feedCommentMore {
+        margin-bottom: 0.1rem;
+      }
+      .feedCommentOther {
+        .feedList {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 0.1rem;
+          .feedCommentOther_column {
+          }
+          .feedCommentOther_icon {
+            button {
+              border: 0;
+              outline: 0;
+            }
+            .fa-heart {
+              font-size: 0.7rem;
+            }
+          }
+        }
+      }
+    }
+    .timeContainer {
+      margin: 0.5rem 1rem;
+      .time {
+        font-size: 0.6rem;
+        color: rgb(172, 172, 172);
+      }
+    }
+    .feedAddComment {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #dbdbdb;
+      input {
+        width: 80%;
+        border: 0;
+        outline: 0;
+        padding: 1rem;
+        font-size: 0.8rem;
+      }
+      button {
+        outline: 0;
+        border: 0;
+        padding: 1rem;
+        font-size: 0.8rem;
+        color: #bfdffd;
+      }
+    }
+  }
+}
