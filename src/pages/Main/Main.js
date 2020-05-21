@@ -7,11 +7,31 @@ import AsideTwo from "../../components/Asidetwo/AsideTwo";
 import Gwon from "../../img/gwon.jpg";
 
 class Main extends Component {
+  roadMain = () => {
+    fetch('http://localhost:8000/login/', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        'name': this.state.id,
+        'password': this.state.pw,
+        'email': ''
+      }) 
+    })
+    .then(response => response.json())
+    .then(response => {
+      if (response.token) {
+        localStorage.setItem('wtw-token', response.token);
+      }
+    })
+  }
+  
   render() {
     return (
       <div>
         <Header />
-        <div class="mainfeed">
+        <div className="mainfeed">
           <Article />
           <div className="feedRight">
             <div className="profileRight">

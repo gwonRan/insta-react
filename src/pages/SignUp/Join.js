@@ -1,17 +1,18 @@
 import React, { Component } from "react";
-import "./Login.scss";
+import "./Join.scss";
 import { withRouter } from "react-router-dom";
 import Logo from "../../img/logo_text.png";
 import DownApple from "../../img/download_apple.png";
 import DownPlay from "../../img/download_play.png";
 
-class Login extends Component {
+class Join extends Component {
   constructor() {
     super();
     this.state = {
       id: "",
       pw: "",
-      buttonChange: "loginBtn",
+      mail: "",
+      buttonChange: "JoinBtn",
     };
   }
 
@@ -27,33 +28,15 @@ class Login extends Component {
     });
   };
 
-  gojoin = () => {
-    this.props.history.push("/join");
+  mailIuput = (e) => {
+    this.setState({
+      pw: e.target.value,
+    });
   };
 
-  loginKeyup = () => {
-    if (
-      this.state.id.length > 5 &&
-      this.state.id.includes("@") &&
-      this.state.pw.length > 5
-    ) {
-      this.setState({
-        buttonChange: "loginAftBtn",
-      });
-    } else {
-      this.setState({
-        buttonChange: "loginBtn",
-      });
-    }
-  };
-
-  pageMain = () => {
-    if (this.state.buttonChange === "loginAftBtn") {
-      this.props.history.push("/main");
-    } else {
-      alert("아이디와 비밀번호를 확인해주세요.");
-    }
-  };
+  goLogin = () => {
+    this.props.history.push("/")
+  }
 
   roadMain = () => {
     fetch('http://localhost:8000/login/', {
@@ -77,55 +60,66 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="Login">
+      <div className="Join">
         <div className="login_page">
           <div className="login my_border">
             <div className="login_logo_box">
               <img src={Logo} alt="" />
             </div>
-            <div className="login_input_box">
-              <div className="login_box_input" onKeyUp={this.loginKeyup}>
-                <input
-                  type="text"
-                  placeholder="전화번호, 사용자 이름 또는 이메일"
-                  className="login_input_box my_border"
-                  id="userId"
-                  onChange={this.idChange}
-                />
-                <input
-                  type="password"
-                  placeholder="비밀번호"
-                  className="login_input_box my_border"
-                  id="userPw"
-                  onChange={this.pwChange}
-                />
-              </div>
-              <div className="login_box_button">
-                <button
-                  type="button"
-                  className={this.state.buttonChange}
-                  onClick={this.pageMain}
-                >
-                  로그인
+            <div className="snsLogin">
+                <span className="joinText">친구들의 사진과 동영상을 보려면 가입하세요.</span>
+                <button className="login_forget_box-facebook">
+                    <i className="fab fa-facebook-square"></i>
+                    <span>Facebook으로 로그인</span>
                 </button>
-              </div>
             </div>
             <div className="login_border_box">
               <div className="login_border_box-grayline"></div>
               <span>또는</span>
               <div className="login_border_box-grayline"></div>
             </div>
-            <div className="login_forget_box">
-              <div className="login_forget_box-facebook">
-                <i className="fab fa-facebook-square"></i>
-                <span>Facebook으로 로그인</span>
+            <div className="login_input_box">
+              <div className="login_box_input" onKeyUp={this.loginKeyup}>
+                <input
+                  type="text"
+                  placeholder="당신의 아이디"
+                  className="login_input_box my_border"
+                  id="userId"
+                  onChange={this.idChange}
+                />
+                <input
+                  type="password"
+                  placeholder="사용자 이름"
+                  className="login_input_box my_border"
+                  id="userPw"
+                  onChange={this.pwChange}
+                />
+                <input
+                  type="text"
+                  placeholder="휴대폰 번호 또는 이메일 주소"
+                  className="login_input_box my_border"
+                  id="email"
+                  onChange={this.mailIuput}
+                />
               </div>
-              <span>비밀번호를 잊으셨나요?</span>
+              <div className="Join_box_button">
+                <button
+                  type="button"
+                  className={this.state.buttonChange}
+                  onClick={this.roadMain}
+                >
+                  가입
+                </button>
+              </div>
+            </div>
+            
+            <div className="policy_box">
+              <span>가입하면 Instagram의 약관, 데이터 정책 및 쿠키 정책에 동의하게 됩니다.</span>
             </div>
           </div>
           <div className="join my_border">
-            <span>계정이 없으신가요?</span>
-            <span onClick={this.gojoin}>가입하기</span>
+            <span>계정이 있으신가요?</span>
+            <span onClick={this.goLogin}>로그인</span>
           </div>
           <div className="download">
             <span>앱을 다운로드 하세요.</span>
@@ -144,4 +138,4 @@ class Login extends Component {
   }
 }
 
-export default withRouter(Login);
+export default withRouter(Join);

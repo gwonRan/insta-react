@@ -6,9 +6,45 @@ import Share from "../../img/share.png";
 import Comment from "../../img/comment.png";
 import Pringco from "../../img/pringco.jpg";
 import "./Article.scss";
+import Litag from "../../components/Litag/Litag";
 
 class Article extends Component {
+  constructor(){
+    super();
+
+    this.state = {
+      inputVal: "", //타입을 정의
+      liArr: [],
+    }
+  }
+  
+  inputChange = e => {
+    this.setState({
+      inputVal: e.target.value,
+    });
+  }
+
+  //함수의 위치 가운데
+  inputClick = (e) => {
+    if(this.state.inputVal.length>0){
+      let Arr = this.state.liArr //왜 중괄호 안써?
+      Arr.push(this.state.inputVal);
+
+      this.setState({
+        liArr: Arr,
+        inputVal: "", //value를 안써지면 input이 가지고 있는 기본값을 정의해줘야한다.
+      });
+
+
+      console.log(this.state.liArr);
+    } 
+  }
+
   render() {
+    const comment = this.state.liArr.map((m, idx) => {
+      return <Litag text={m} key={idx} />
+    });
+
     return (
       <div className="Article">
         <article className="my_border">
@@ -67,28 +103,7 @@ class Article extends Component {
               <span>오늘의 신상</span>
             </div>
             <ul className="feedCommentOther">
-              <li className="feedList">
-                <div className="feedCommentOther_column">
-                  <span className="font-bold">pringco</span>
-                  <span className="inputVal">오늘의 신상</span>
-                </div>
-                <div className="feedCommentOther_icon">
-                  <button className="heartButton ">
-                    <i className="far fa-heart"></i>
-                  </button>
-                </div>
-              </li>
-              <li className="feedList">
-                <div className="feedCommentOther_column">
-                  <span className="font-bold">pringco</span>
-                  <span className="inputVal">오늘의 신상</span>
-                </div>
-                <div className="feedCommentOther_icon">
-                  <button className="heartButton">
-                    <i className="far fa-heart"></i>
-                  </button>
-                </div>
-              </li>
+              {comment}
             </ul>
           </div>
           <div className="timeContainer">
@@ -96,11 +111,13 @@ class Article extends Component {
           </div>
           <div className="feedAddComment">
             <input
+              value= {this.state.inputVal} //연결시키자
               type="text"
               placeholder="댓글 달기..."
               className="inputBox"
+              onChange={this.inputChange}
             />
-            <button type="submit" className="submitBox">
+            <button type="submit" className="submitBox" onClick={this.inputClick}>
               게시
             </button>
           </div>

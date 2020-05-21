@@ -4,7 +4,7 @@ import "./Footer.scss";
 class Footer extends Component {
   render() {
     return (
-      <div class="Footer">
+      <div className="Footer">
         <ul>
           <li>소개•</li>
           <li>도움말•</li>
